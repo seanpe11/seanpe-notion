@@ -34,7 +34,7 @@ async function getRandomQuote(req, res) {
         block_id: block_id
     })
     if (block.type == "paragraph"){
-        console.log(parseNotionText(block.paragraph.text))
+        // console.log(parseNotionText(block.paragraph.text))
         res.send(parseNotionText(block.paragraph.text))
     }
     

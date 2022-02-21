@@ -13,7 +13,7 @@ function parseNotionText(textArr){
         }
         return prev + curString
     }, "")
-    console.log(finalString)
+    // console.log(finalString)
     return finalString
 }
 
