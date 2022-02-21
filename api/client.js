@@ -9,7 +9,7 @@ function randInt(max) {
     return Math.floor(Math.random() * max)
 }
 
-async function getQuote(req, res) {
+async function getRandomQuote(req, res) {
     const pageId = '5d43fa370eb24a89bbba1da3c192c49d';
     let results = []
     let response = await notion.blocks.children.list({
@@ -42,6 +42,6 @@ async function getQuote(req, res) {
 
 // getQuote()
 
-module.exports.getQuote = getQuote
+module.exports.getRandomQuote = getRandomQuote
 
 
