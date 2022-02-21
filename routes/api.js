@@ -1,7 +1,12 @@
 const api_router = require('express').Router()
+const { getQuote } = require("../api/client")
 
 api_router.get("/test", (req, res) => {
     res.send("test")
 })
+
+// create a pomodoro timer
+
+api_router.get("/quote", getQuote)
 
 module.exports = api_router
