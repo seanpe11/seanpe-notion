@@ -1,0 +1,23 @@
+{
+  "name": "seanpe-notion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanpe11/seanpe-notion.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seanpe11/seanpe-notion/issues"
+  },
+  "homepage": "https://github.com/seanpe11/seanpe-notion#readme",
+  "dependencies": {
+    "@notionhq/client": "^0.4.13",
+    "express": "^4.17.3"
+  }
+}
