@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+</head>
+<body>
+  <script src="https://unpkg.com/vue@3"></script>
+
+<div id="app">{{ kanye }}</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    console.log(Vue)
+    Vue.createApp({
+        data() {
+            return {
+                kanye: ""
+            }
+        },
+        async created() {
+            axios.get("https://api.kanye.rest").then((res) => {
+                this.kanye = res.data.quote
+            })
+        }
+    }).mount('#app')
+</script>
+</body>
+
+
+<script>
+
+</script>
+
+
+
+</html>
