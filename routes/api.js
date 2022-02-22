@@ -7,6 +7,6 @@ api_router.get("/test", (req, res) => {
 
 // create a pomodoro timer
 
-api_router.get("/random-quote", getRandomQuote)
+api_router.get("/random-quote/:json?", getRandomQuote)
 
 module.exports = api_router

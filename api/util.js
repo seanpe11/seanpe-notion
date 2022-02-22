@@ -13,7 +13,8 @@ function parseNotionText(textArr){
         }
         return prev + curString
     }, "")
-    // console.log(finalString)
+
+
     return finalString
 }
 
@@ -28,3 +29,4 @@ function plainNotionTextJson(textArr){
 }
 
 module.exports.parseNotionText = parseNotionText
+module.exports.plainNotionTextJson = plainNotionTextJson

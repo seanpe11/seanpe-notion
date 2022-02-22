@@ -1,6 +1,6 @@
 const { Client } = require('@notionhq/client');
 const { parse } = require('dotenv');
-const { parseNotionText } = require("./util.js") 
+const { parseNotionText, plainNotionTextJson } = require("./util.js") 
 require('dotenv').config({ path: require('find-config')('.env') })
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
@@ -33,12 +33,14 @@ async function getRandomQuote(req, res) {
     const block = await notion.blocks.retrieve({
         block_id: block_id
     })
+    
     if (block.type == "paragraph"){
         // console.log(parseNotionText(block.paragraph.text))
-        res.send(parseNotionText(block.paragraph.text))
-    }
-    if (req.params.json){
-        res.send(plainNotionTextJson(block.paragraph.text))
+        if(req.query.json){
+            res.send(plainNotionTextJson(block.paragraph.text))
+        } else{
+            res.send(parseNotionText(block.paragraph.text))
+        }
     }
     
 }
