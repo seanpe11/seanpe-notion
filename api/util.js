@@ -17,4 +17,14 @@ function parseNotionText(textArr){
     return finalString
 }
 
+function plainNotionTextJson(textArr){
+    let finalString = textArr.reduce((prev, current) => {
+        return prev + current.plain_text
+    }, "")
+
+    return {
+        text: finalString
+    }
+}
+
 module.exports.parseNotionText = parseNotionText
