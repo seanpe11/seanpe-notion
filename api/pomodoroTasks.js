@@ -38,5 +38,24 @@ async function getTodayTasks(){
     console.log(pomodoroTasks)
 }
 
-module.exports.getTodayTasks = getTodayTasks
+function pomodoroDate(){
+    
+}
+
+async function initPomodoro(req, res){
+    const tasks = await getTodayTasks()
+    tasks.forEach(task => {
+        task.completed = 0
+        task.running = false
+        task.created = false
+    })
+    // send to firebase
+
+
+    res.send.status(200)
+}
+
+
+
+// module.exports.getTodayTasks = getTodayTasks
 // module.exports.loadPomodoro()

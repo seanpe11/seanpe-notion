@@ -1,5 +1,5 @@
 const api_router = require('express').Router()
-const { getRandomQuote } = require("../api/client")
+const { getRandomQuote } = require("../api/getQuote")
 
 api_router.get("/test", (req, res) => {
     res.send("test")
