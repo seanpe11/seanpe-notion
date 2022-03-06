@@ -19,6 +19,7 @@
   "homepage": "https://github.com/seanpe11/seanpe-notion#readme",
   "dependencies": {
     "@notionhq/client": "^0.4.13",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "find-config": "^1.0.0"
