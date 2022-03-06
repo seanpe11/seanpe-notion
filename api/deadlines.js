@@ -38,7 +38,12 @@ async function getDeadlines(req, res) {
         const action_item_string = obj.properties['Action Item'].title.reduce((prev, curr) => {
             return prev + curr.plain_text
         }, "")
-        const { name  } = obj.properties['Priority'].select
+        let name = "none"
+        
+        if (obj.properties["Priority"].select){
+          name = obj.properties["Priority"].select.name
+        }
+  
         // console.log(action_item_string)
         return { action_item: action_item_string, deadline: deadline, priority: name }
     })
