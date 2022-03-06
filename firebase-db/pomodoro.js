@@ -16,6 +16,3 @@ const db = getFirestore(app)
   console.error("Error adding document: ", e);
 }})
 
-export async function addDeadline(pageId) {
-
-}

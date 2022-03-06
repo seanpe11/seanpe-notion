@@ -40,7 +40,7 @@ async function getDeadlines(req, res) {
         }, "")
         const { name  } = obj.properties['Priority'].select
         // console.log(action_item_string)
-        return { action_item: action_item_string, deadline: deadline, priority: {name} }
+        return { action_item: action_item_string, deadline: deadline, priority: name }
     })
 
     res.json(deadlines)
