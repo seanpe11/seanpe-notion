@@ -30,6 +30,10 @@ async function getDeadlines(req, res) {
         property: 'Deadline',
         direction: 'ascending',
       },
+      {
+        property: 'Priority',
+        direction: 'descending'
+      }
     ],
   });
 
