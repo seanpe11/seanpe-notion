@@ -1,6 +1,8 @@
 const { getFirestore, collection, addDoc } = require("firebase/firestore")
 const { app } = require("./init")
 
+const { Client } = require('@notionhq/client');
+
 const db = getFirestore(app)
 
 (async function() {try {
@@ -13,3 +15,7 @@ const db = getFirestore(app)
 } catch (e) {
   console.error("Error adding document: ", e);
 }})
+
+export async function addDeadline(pageId) {
+
+}
