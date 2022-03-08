@@ -56,4 +56,50 @@ async function getDeadlines(req, res) {
 
 };
 
+async function getNFTDropTimes(){
+  const databaseId = 'aa868e17670f4177a931bcba8ad03a20';
+  const response = await notion.databases.query({
+    database_id: databaseId,
+    filter: {
+      "and": [
+        {
+            "property": "Deadline",
+            "date": {
+                is_not_empty: true
+            },
+        },
+        {
+            "property": "Done",
+            "checkbox": {
+                equals: false
+            },
+        },
+        {
+          "property": "Priority",
+          "select": {
+            equals: "NFT"
+          },
+        },
+      ]
+    },
+    sorts: [
+      {
+        property: 'Deadline',
+        direction: 'ascending',
+      },
+    ],
+  });
+
+  const nftDropTimes = response.results.map((result) => {
+    const deadline = obj.properties.Deadline.date.start
+    const action_item_string = obj.properties['Action Item'].title.reduce((prev, curr) => {
+      return prev + curr.plain_text
+    }, "")
+    return { deadline: deadline, project: action_item_string }
+  })
+
+  res.json(nftDropTimes)
+}
+
 module.exports.getDeadlines = getDeadlines
+module.exports.getNFTDropTimes = getNFTDropTimes
