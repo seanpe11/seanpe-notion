@@ -47,7 +47,6 @@ async function getDeadlines(req, res) {
         if (obj.properties["Priority"].select){
           name = obj.properties["Priority"].select.name
         }
-  
         // console.log(action_item_string)
         return { action_item: action_item_string, deadline: deadline, priority: name }
     })

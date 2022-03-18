@@ -1,4 +1,5 @@
 const widget_router = require('express').Router()
+const { dirname } = require('path')
 const path = require('path')
 
 widget_router.get('/timer', (req, res) => {
@@ -13,6 +14,10 @@ widget_router.get('/test', (req, res) => {
 
 widget_router.get("/deadlines", (req, res) => {
     res.sendFile(path.join(__dirname, './widgets/deadline-widget.html'))
+})
+
+widget_router.get("/dropdates", (req, res) => {
+    res.sendFile(path.join(__dirname, './widgets/dropdate-widget.html'))
 })
 
 
