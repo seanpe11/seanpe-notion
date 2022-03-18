@@ -56,4 +56,48 @@ async function getDeadlines(req, res) {
 
 };
 
+
+async function getDropDates(req, res) {
+  const databaseId = '62cd65d85420445d97bbce65ad697679';
+  const response = await notion.databases.query({
+    database_id: databaseId,
+    filter: {
+      "and": [
+        {
+            "property": "Drop Date UTC",
+            "date": {
+                is_not_empty: true
+            }
+        },
+        {
+            "property": "Drop Date UTC",
+            "date": {
+                next_week: {}
+            }
+        },
+      ]
+    },
+    sorts: [
+      {
+        property: 'Drop Date UTC',
+        direction: 'ascending',
+      },
+    ],
+  });
+
+    const dropDates = response.results.map((obj) => {
+      const drop_date = obj.properties['Drop Date UTC'].date.start
+      const project_string = obj.properties['Project'].title.reduce((prev, curr) => {
+          return prev + curr.plain_text
+      }, "")
+
+      // console.log(action_item_string)
+      return { project: project_string, drop_date: drop_date }
+    })
+
+    res.json(dropDates)
+
+};
+
 module.exports.getDeadlines = getDeadlines
+module.exports.getDropDates = getDropDates

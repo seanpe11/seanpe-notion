@@ -14,7 +14,6 @@ function parseNotionText(textArr){
         return prev + curString
     }, "")
 
-
     return finalString
 }
 
